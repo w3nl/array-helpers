@@ -1,0 +1,14 @@
+sudo: true
+dist: trusty
+addons:
+language: node_js
+node_js:
+  - "6"
+  - "7"
+  - "8"
+before_script:
+  - npm run lint
+git:
+  depth: 10
+cache:
+  yarn: true
