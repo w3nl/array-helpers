@@ -2,3 +2,4 @@
 =====
 
 * Start with the project.
+* Add to travis.
