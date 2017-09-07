@@ -1,6 +1,6 @@
 # Array Helpers
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-stats] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url]
 
 Array helpers, so you can get very fast your data from the array.
 
@@ -378,3 +378,8 @@ An example is included `example/node.js`
 [downloads-image]: https://img.shields.io/npm/dm/array-helpers.svg
 [npm-url]: https://www.npmjs.com/package/array-helpers
 [npm-image]: https://img.shields.io/npm/v/array-helpers.svg
+[npm-stats]: https://npm-stat.com/charts.html?package=array-helpers
+[travis-url]: https://travis-ci.org/w3nl/array-helpers
+[travis-image]: https://img.shields.io/travis/w3nl/array-helpers/master.svg
+[coveralls-url]: https://coveralls.io/r/w3nl/array-helpers
+[coveralls-image]: https://img.shields.io/coveralls/w3nl/array-helpers/master.svg
