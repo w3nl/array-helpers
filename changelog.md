@@ -3,3 +3,4 @@
 
 * Start with the project.
 * Add to travis.
+* Add to coveralls.
