@@ -79,6 +79,32 @@ var expect = {
             age:  62,
             city: 'Rome'
         }
+    ]),
+    test3: JSON.stringify([
+        {
+            id:   0,
+            name: 'John',
+            age:  93,
+            city: 'Patmos'
+        },
+        {
+            id:   2,
+            name: 'Luke',
+            age:  84,
+            city: 'Boeotia'
+        },
+        {
+            id:   2,
+            name: 'Paul',
+            age:  62,
+            city: 'Rome'
+        },
+        {
+            id:   1,
+            name: 'Peter',
+            age:  62,
+            city: 'Rome'
+        }
     ])
 };
 
@@ -94,6 +120,12 @@ describe('Multisort', function() {
     describe('Test 1 (DESC)', function() {
         it('Should return the array, sorted by age desc.', function() {
             assert.equal(expect.test2, JSON.stringify(exampleArray.multisort('age', 'desc')));
+        });
+    });
+
+    describe('Test 3 (sort text ASC)', function() {
+        it('Should return the array, sorted by age asc.', function() {
+            assert.equal(expect.test3, JSON.stringify(exampleArray.multisort('name', 'asc')));
         });
     });
 });

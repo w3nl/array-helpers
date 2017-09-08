@@ -6,4 +6,8 @@ describe('Min', function() {
     it('Should return the min, in this example should it be 1.', function() {
         assert.equal(1, exampleArray.min());
     });
+
+    it('Test an empty array', function() {
+        assert.equal(null, [].min());
+    });
 });

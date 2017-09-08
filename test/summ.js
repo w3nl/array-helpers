@@ -6,4 +6,8 @@ describe('Summ', function() {
     it('Should return the summ of the items, in this example should it be 6.', function() {
         assert.equal(6, exampleArray.summ());
     });
+
+    it('Test an empty array', function() {
+        assert.equal(null, [].summ());
+    });
 });

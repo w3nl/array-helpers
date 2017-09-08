@@ -6,4 +6,8 @@ describe('Average', function() {
     it('Should return the average, in this example should it be 2.', function() {
         assert.equal(2, exampleArray.average());
     });
+
+    it('Test an empty array', function() {
+        assert.equal(null, [].average());
+    });
 });
