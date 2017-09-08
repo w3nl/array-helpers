@@ -55,11 +55,11 @@ Array.prototype.multifilter = function(key, find, operator) {
                 return true;
             } else if (value[key] > find.max() && operator == '>') {
                 return true;
-            } else if (value[key] >= find.max() >= 0 && operator == '>=') {
+            } else if (value[key] >= find.max() && operator == '>=') {
                 return true;
-            } else if (value[key] < find.max() >= 0 && operator == '<') {
+            } else if (value[key] < find.min() && operator == '<') {
                 return true;
-            } else if (value[key] <= find.max() >= 0 && operator == '<=') {
+            } else if (value[key] <= find.min() && operator == '<=') {
                 return true;
             }
 
