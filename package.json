@@ -27,14 +27,16 @@
     "scripts": {
         "lint": "eslint js/*.js --config .eslintrc",
         "test": "mocha --reporter spec",
-        "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+        "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov&& cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+        "cover-check": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
     },
     "devDependencies": {
         "eslint": "4.6.1",
         "istanbul": "^0.4.5",
         "mocha": "^3.5.0",
         "mocha-lcov-reporter": "^1.3.0",
-        "coveralls": "^2.13.1"
+        "coveralls": "^2.13.1",
+        "codecov": "^2.3.0"
     },
     "dependencies": {},
     "engines": {
