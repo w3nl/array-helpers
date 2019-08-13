@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "description": "Usefull array helpers.",
     "files": [
         "js/helpers.core.js"
@@ -40,6 +40,6 @@
     },
     "dependencies": {},
     "engines": {
-        "node": ">= 6.0"
+        "node": ">= 10.13"
     }
 }
