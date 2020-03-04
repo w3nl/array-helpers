@@ -6,6 +6,7 @@
         "js/helpers.core.js"
     ],
     "main": "js/helpers.core.js",
+    "types": "js/types.d.ts",
     "repository": {
         "type": "git",
         "url": "https://github.com/w3nl/array-helpers.git"
