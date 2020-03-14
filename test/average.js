@@ -1,13 +1,11 @@
-var assert = require('assert');
-var Converter = require('../js/helpers.core.js');
-var exampleArray = [1, 2, 3];
+import { Arr } from '../js/helpers.core';
 
-describe('Average', function() {
-    it('Should return the average, in this example should it be 2.', function() {
-        assert.equal(2, exampleArray.average());
+describe('Average', () => {
+    it('Should return the average, in this example should it be 2.', () => {
+        expect(new Arr([1, 2, 3]).average).toEqual(2);
     });
 
-    it('Test an empty array', function() {
-        assert.equal(null, [].average());
+    it('Test an empty array', () => {
+        expect(new Arr([]).average).toEqual(null);
     });
 });

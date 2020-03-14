@@ -1,13 +1,13 @@
-var assert = require('assert');
-var Converter = require('../js/helpers.core.js');
-var exampleArray = [1, 2, 3];
+import { Arr } from '../js/helpers.core';
 
-describe('Max', function() {
-    it('Should return the max, in this example should it be 3.', function() {
-        assert.equal(3, exampleArray.max());
+const exampleArray = new Arr([1, 2, 3]);
+
+describe('Max', () => {
+    it('Should return the max, in this example should it be 3.', () => {
+        expect(3).toEqual(exampleArray.max);
     });
 
-    it('Test an empty array', function() {
-        assert.equal(null, [].max());
+    it('Test an empty array', () => {
+        expect(null).toEqual(new Arr().max);
     });
 });

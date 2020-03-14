@@ -7,7 +7,9 @@ Array helpers, so you can get very fast your data from the array.
 here an example array.
 
 ```
-var exampleArray = [
+import { Arr } from 'array-helpers';
+
+var exampleArray = new Arr([
     {
         id: 0,
         name: 'John',
@@ -32,7 +34,7 @@ var exampleArray = [
         age: 62,
         city: 'Rome'
     },
-];
+]);
 ```
 
 ## multisort
@@ -254,7 +256,7 @@ Takes the array and returns a new array without duplicate values.
 ```
 var a = ['John', 'Peter', 'Luke', 'Peter', 'Luke', 'Paul'];
 
-a.unique();
+a.unique;
 
 ['John', 'Peter', 'Luke', 'Paul']
 ```
@@ -288,7 +290,7 @@ The largest of the given numbers. If at least one of the arguments cannot be con
 ```
 var exampleArray = [1,2,3];
 
-exampleArray.max();
+exampleArray.max;
 
 3
 ```
@@ -300,7 +302,7 @@ The smallest of the given numbers. If at least one of the arguments cannot be co
 ```
 var exampleArray = [1,2,3];
 
-exampleArray.min();
+exampleArray.min;
 
 1
 ```
@@ -312,7 +314,7 @@ Get a random value of an array.
 ```
 var exampleArray = [1,2,3];
 
-exampleArray.random();
+exampleArray.random;
 
 e.g. 2
 ```
@@ -324,7 +326,7 @@ The summ of all values.
 ```
 var exampleArray = [1,2,3];
 
-exampleArray.summ();
+exampleArray.summ;
 
 6
 ```
@@ -336,7 +338,7 @@ Get the average of all values.
 ```
 var exampleArray = [1,2,3];
 
-exampleArray.average();
+exampleArray.average;
 
 2
 ```
@@ -367,7 +369,7 @@ npm install array-helpers
 Use the package in your node files.
 
 ```
-require('array-helpers');
+import { Arr } from 'array-helpers';
 ```
 
 Than you can use all array helpers from this package in your node files.

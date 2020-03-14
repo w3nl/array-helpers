@@ -1,13 +1,13 @@
-var assert = require('assert');
-var Converter = require('../js/helpers.core.js');
-var exampleArray = [1, 2, 3];
+import { Arr } from '../js/helpers.core';
 
-describe('Summ', function() {
-    it('Should return the summ of the items, in this example should it be 6.', function() {
-        assert.equal(6, exampleArray.summ());
+const exampleArray = new Arr([1, 2, 3]);
+
+describe('Summ', () => {
+    it('Should return the summ of the items, in this example should it be 6.', () => {
+        expect(6).toEqual(exampleArray.summ);
     });
 
-    it('Test an empty array', function() {
-        assert.equal(null, [].summ());
+    it('Test an empty array', () => {
+        expect(null).toEqual(new Arr([]).summ);
     });
 });

@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "1.3.1",
+    "version": "2.0.0",
     "description": "Usefull array helpers.",
     "files": [
         "js/helpers.core.js"
@@ -27,17 +27,31 @@
     "homepage": "https://github.com/w3nl/array-helpers#readme",
     "scripts": {
         "lint": "eslint js/*.js --config .eslintrc",
-        "test": "mocha --reporter spec",
-        "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && codecov && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-        "cover-check": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+        "test": "jest",
+        "example": "node -r esm example/node.js",
+        "coveralls": "jest && codecov && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
     },
     "devDependencies": {
+        "@babel/core": "^7.8.7",
+        "@babel/preset-env": "^7.8.7",
+        "@hckrnews/eslint-config": "^0.1.1",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "^25.1.0",
         "codecov": "^3.6.5",
         "coveralls": "^3.0.9",
         "eslint": "^6.8.0",
-        "istanbul": "^0.4.5",
-        "mocha": "^7.1.0",
-        "mocha-lcov-reporter": "^1.3.0"
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-html": "^6.0.0",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.1",
+        "eslint-plugin-react": "^7.19.0",
+        "eslint-plugin-vue": "^6.2.2",
+        "esm": "^3.2.25",
+        "jest": "^25.1.0",
+        "jscpd": "^3.1.0",
+        "prettier": "1.19.1"
     },
     "dependencies": {},
     "engines": {

@@ -1,6 +1,6 @@
-require('array-helpers');
+import { Arr } from '../js/helpers.core';
 
-const exampleArray = [1, 2, 3];
-const results = exampleArray.average();
+const exampleArray = new Arr([1, 2, 3]);
+const { average } = exampleArray;
 
-console.log('average: ', results);
+console.log('average: ', average);
