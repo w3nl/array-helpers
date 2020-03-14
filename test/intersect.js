@@ -1,19 +1,19 @@
-var assert = require('assert');
-var Converter = require('../js/helpers.core.js');
-var a = ['John', 'Peter', 'Luke'];
-var b = ['Peter', 'Luke', 'Paul'];
-var c = ['Luke', 'Paul', 'John'];
+import { Arr } from '../js/helpers.core';
 
-describe('Intersect', function() {
-    describe('One side', function() {
-        it('Should return the intersect, in this example should it be Peter and Luke.', function() {
-            assert.equal(['Peter', 'Luke'].toString(), a.intersect(b).toString());
+const a = new Arr(['John', 'Peter', 'Luke']);
+const b = ['Peter', 'Luke', 'Paul'];
+const c = ['Luke', 'Paul', 'John'];
+
+describe('Intersect', () => {
+    describe('One side', () => {
+        it('Should return the intersect, in this example should it be Peter and Luke.', () => {
+            expect(['Peter', 'Luke']).toEqual(a.intersect(b));
         });
     });
 
-    describe('Average both sides', function() {
-        it('Should return the intersect of more than 2 arrays, in this example should it be Luke.', function() {
-            assert.equal(['Luke'].toString(), a.intersect([b, c], true));
+    describe('Average both sides', () => {
+        it('Should return the intersect of more than 2 arrays, in this example should it be Luke.', () => {
+            expect(['Luke']).toEqual(a.intersect([b, c], true));
         });
     });
 });

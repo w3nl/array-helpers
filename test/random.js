@@ -1,11 +1,11 @@
-var assert = require('assert');
-var Converter = require('../js/helpers.core.js');
-var exampleArray = [1, 2, 3];
+import { Arr } from '../js/helpers.core';
 
-describe('Random', function() {
-    it('Check if the random value is an item from the array.', function() {
-        var random = exampleArray.random();
+const exampleArray = new Arr([1, 2, 3]);
 
-        assert.notEqual(-1, exampleArray.indexOf(random));
+describe('Random', () => {
+    it('Check if the random value is an item from the array.', () => {
+        const { random } = exampleArray;
+
+        expect(true).toEqual(exampleArray.includes(random));
     });
 });

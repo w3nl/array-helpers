@@ -1,259 +1,153 @@
-/**
- * Sort a multiarray.
- *
- * @param {string} key
- * @param {string} direction
- *
- * @return {array}
- */
-Array.prototype.multisort = function(key, direction) {
-    var moveDirection = 1;
+import { multisort } from './modules/multisort';
+import { multifilter } from './modules/multifilter';
+import { multikey } from './modules/multikey';
+import { intersect } from './modules/intersect';
+import { min } from './modules/min';
+import { max } from './modules/max';
+import { diff } from './modules/diff';
+import { unique } from './modules/unique';
+import { summ } from './modules/summ';
+import { average } from './modules/average';
+import { random } from './modules/random';
 
-    if(direction == 'desc') {
-        moveDirection = -1;
+/**
+ * Object helper
+ */
+export class Arr extends Array {
+    static get [Symbol.species]() {
+        return Array;
     }
 
-    return this.sort(function(a, b) {
-        var nameA = a[key];
-        var nameB = b[key];
-
-        if (typeof nameA == 'string') {
-            nameA = nameA.toUpperCase();
-        }
-
-        if (typeof nameB == 'string') {
-            nameB = nameB.toUpperCase();
-        }
-
-        if (nameA < nameB) {
-            return -1 * moveDirection;
-        }
-
-        if (nameA > nameB) {
-            return 1 * moveDirection;
-        }
-
-        return 0;
-    });
-};
-
-/**
- * Filter a multi array.
- *
- * @param {string}  key
- * @param {string}  find
- * @param {boolean} operator
- *
- * @return {array}
- */
-Array.prototype.multifilter = function(key, find, operator) {
-    return this.filter(function(value) {
-        if (typeof find == 'object') {
-            if (find.indexOf(value[key]) < 0 && (operator == true || operator == '!=' || operator == '<>')) {
-                return true;
-            } else if (find.indexOf(value[key]) >= 0 && !operator) {
-                return true;
-            } else if (value[key] > find.max() && operator == '>') {
-                return true;
-            } else if (value[key] >= find.max() && operator == '>=') {
-                return true;
-            } else if (value[key] < find.min() && operator == '<') {
-                return true;
-            } else if (value[key] <= find.min() && operator == '<=') {
-                return true;
-            }
-
-            return false;
-        }
-
-        if (value[key] != find && (operator == true || operator == '!=' || operator == '<>')) {
-            return true;
-        } else if (value[key] == find && !operator) {
-            return true;
-        } else if (value[key] > find && operator == '>') {
-            return true;
-        } else if (value[key] >= find && operator == '>=') {
-            return true;
-        } else if (value[key] < find && operator == '<') {
-            return true;
-        } else if (value[key] <= find && operator == '<=') {
-            return true;
-        }
-    });
-};
-
-/**
- * Only get some keys of a multi array.
- *
- * @param {string} key
- *
- * @return {array}
- */
-Array.prototype.multikey = function(key) {
-    return this.map(function(value) {
-        var item = {};
-
-        if (typeof key == 'object') {
-            key.forEach(function(itemKey) {
-                item[itemKey] = value[itemKey];
-            });
-
-            return item;
-        }
-
-        return value[key];
-    });
-};
-
-/**
- * Get the intersection of arrays.
- *
- * @param {string}  array
- * @param {boolean} multi
- *
- * @return {array}
- */
-Array.prototype.intersect = function(array, multi) {
-    return this.filter(function(value) {
-        var found = 0;
-
-        if (multi) {
-            array.forEach(function(arrayValues) {
-                if (arrayValues.indexOf(value) >= 0) {
-                    found++;
-                }
-            });
-
-            if (found == array.length) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        if (array.indexOf(value) >= 0) {
-            return true;
-        }
-    });
-};
-
-/**
- * Get the difference of arrays.
- *
- * @param {string}  array
- * @param {boolean} total
- *
- * @return {array}
- */
-Array.prototype.diff = function(array, total) {
-    var currentArray = this;
-    var differenceArray = currentArray.filter(function(value) {
-        return array.indexOf(value) < 0;
-    });
-    var differenceArrayB = [];
-
-    if(total) {
-        differenceArrayB = array.filter(function(value) {
-            return currentArray.indexOf(value) < 0;
-        });
+    /**
+     * Sort a multiarray.
+     *
+     * @param {string} key
+     * @param {string} direction
+     *
+     * @return {array}
+     */
+    multisort(key, direction) {
+        return multisort(this[0], key, direction);
     }
 
-    return differenceArray.concat(differenceArrayB);
-};
-
-/**
- * Get the unique values of an array.
- *
- * @return {array}
- */
-Array.prototype.unique = function() {
-    return this.filter(function(value, index, self) {
-        return self.indexOf(value) === index;
-    });
-};
-
-/**
- * Only add the value if the value isnt in the array.
- *
- * @param {string} newValue
- *
- * @return {int}
- */
-Array.prototype.pushIfNotExists = function(newValue) {
-    if(this.indexOf(newValue) < 0) {
-        this.push(newValue);
+    /**
+     * Filter a multi array.
+     *
+     * @param {string}  key
+     * @param {string}  find
+     * @param {boolean} operator
+     *
+     * @return {array}
+     */
+    multifilter(key, find, operator) {
+        return multifilter(this[0], key, find, operator);
     }
 
-    return this.length;
-};
-
-/**
- * The largest of the given numbers. If at least one of the arguments cannot be converted to a number, NaN is returned.
- *
- * @return {int}
- */
-Array.prototype.max = function() {
-    if(typeof this != 'object' || this.length < 1) {
-        return;
+    /**
+     * Only get some keys of a multi array.
+     *
+     * @param {string} key
+     *
+     * @return {array}
+     */
+    multikey(key) {
+        return multikey(this[0], key);
     }
 
-    return this.reduce(function(a, b) {
-        return Math.max(a, b);
-    });
-};
-
-/**
- * The smallest of the given numbers. If at least one of the arguments cannot be converted to a number, NaN is returned.
- *
- * @return {int}
- */
-Array.prototype.min = function() {
-    if(typeof this != 'object' || this.length < 1) {
-        return;
+    /**
+     * Get the intersection of arrays.
+     *
+     * @param {string}  array
+     * @param {boolean} multi
+     *
+     * @return {array}
+     */
+    intersect(array, multi) {
+        return intersect(this[0], array, multi);
     }
 
-    return this.reduce(function(a, b) {
-        return Math.min(a, b);
-    });
-};
-
-/**
- * Get a random value of an array.
- *
- * @return {string}
- */
-Array.prototype.random = function() {
-    var min = 0;
-    var max = this.length;
-    var random = Math.floor(Math.random() * (max - min)) + min;
-
-    return this[random];
-};
-
-/**
- * The summ of all values.
- *
- * @return {int}
- */
-Array.prototype.summ = function() {
-    if(typeof this != 'object' || this.length < 1) {
-        return;
+    /**
+     * Get the difference of arrays.
+     *
+     * @param {string}  array
+     * @param {boolean} total
+     *
+     * @return {array}
+     */
+    diff(array, total) {
+        return diff(this[0], array, total);
     }
 
-    return this.reduce(function(a, b) {
-        return a + b;
-    }, 0);
-};
-
-/**
- * Get the average of all values.
- *
- * @return {int}
- */
-Array.prototype.average = function() {
-    if(typeof this != 'object' || this.length < 1) {
-        return;
+    /**
+     * Get the unique values of an array.
+     *
+     * @return {array}
+     */
+    get unique() {
+        return unique(this[0]);
     }
 
-    return (this.summ() / this.length);
-};
+    /**
+     * Only add the value if the value isnt in the array.
+     *
+     * @param {string} newValue
+     *
+     * @return {int}
+     */
+    pushIfNotExists(newValue) {
+        if (this[0].indexOf(newValue) < 0) {
+            this[0].push(newValue);
+        }
+
+        return this[0].length;
+    }
+
+    /**
+     * The largest of the given numbers.
+     * If at least one of the arguments cannot be converted to a number,
+     * NaN is returned.
+     *
+     * @return {int}
+     */
+    get max() {
+        return max(this[0]);
+    }
+
+    /**
+     * The smallest of the given numbers.
+     * If at least one of the arguments cannot be converted to a number,
+     * NaN is returned.
+     *
+     * @return {int}
+     */
+    get min() {
+        return min(this[0]);
+    }
+
+    /**
+     * Get a random value of an array.
+     *
+     * @return {string}
+     */
+    get random() {
+        return random(this);
+    }
+
+    /**
+     * The summ of all values.
+     *
+     * @return {int}
+     */
+    get summ() {
+        return summ(this[0]);
+    }
+
+    /**
+     * Get the average of all values.
+     *
+     * @return {int}
+     */
+    get average() {
+        return average(this[0]);
+    }
+}

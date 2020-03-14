@@ -1,13 +1,13 @@
-var assert = require('assert');
-var Converter = require('../js/helpers.core.js');
-var exampleArray = [1, 2, 3];
+import { Arr } from '../js/helpers.core';
 
-describe('Min', function() {
-    it('Should return the min, in this example should it be 1.', function() {
-        assert.equal(1, exampleArray.min());
+const exampleArray = new Arr([1, 2, 3]);
+
+describe('Min', () => {
+    it('Should return the min, in this example should it be 1.', () => {
+        expect(1).toEqual(exampleArray.min);
     });
 
-    it('Test an empty array', function() {
-        assert.equal(null, [].min());
+    it('Test an empty array', () => {
+        expect(null).toEqual(new Arr().min);
     });
 });

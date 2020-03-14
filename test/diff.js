@@ -1,18 +1,20 @@
-var assert = require('assert');
-var Converter = require('../js/helpers.core.js');
-var a = ['John', 'Peter', 'Luke'];
-var b = ['Peter', 'Luke', 'Paul'];
+import { Arr } from '../js/helpers.core';
 
-describe('Diff', function() {
-    describe('One side', function() {
-        it('Should return the difference, in this example should it be John.', function() {
-            assert.equal(['John'].toString(), a.diff(b).toString());
+const a = new Arr(['John', 'Peter', 'Luke']);
+const b = ['Peter', 'Luke', 'Paul'];
+
+describe('Diff', () => {
+    describe('One side', () => {
+        it('Should return the difference, in this example should it be John.', () => {
+            expect(['John'].toString()).toEqual(a.diff(b).toString());
         });
     });
 
-    describe('Average both sides', function() {
-        it('Should return the difference of both sides, in this example should it be John and Paul.', function() {
-            assert.equal(['John', 'Paul'].toString(), a.diff(b, true).toString());
+    describe('Average both sides', () => {
+        it('Should return the difference of both sides, in this example should it be John and Paul.', () => {
+            expect(['John', 'Paul'].toString()).toEqual(
+                a.diff(b, true).toString()
+            );
         });
     });
 });

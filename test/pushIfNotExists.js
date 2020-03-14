@@ -1,40 +1,32 @@
-var assert = require('assert');
-var Converter = require('../js/helpers.core.js');
-var a = [];
+import { Arr } from '../js/helpers.core';
 
-var expect = {
-    test1: JSON.stringify([
-        'John'
-    ]),
-    test2: JSON.stringify([
-        'John',
-        'Peter'
-    ]),
-    test3: JSON.stringify([
-        'John',
-        'Peter'
-    ])
+const a = new Arr([]);
+
+const expectedResults = {
+    test1: ['John'],
+    test2: ['John', 'Peter'],
+    test3: ['John', 'Peter'],
 };
 
-describe('Push if not exists', function() {
-    describe('Test 1', function() {
-        it('Should be return 1 item in the array.', function() {
+describe('Push if not exists', () => {
+    describe('Test 1', () => {
+        it('Should be return 1 item in the array.', () => {
             a.pushIfNotExists('John');
-            assert.equal(expect.test1, JSON.stringify(a));
+            expect(expectedResults.test1).toEqual(a[0]);
         });
     });
 
-    describe('Test 2', function() {
-        it('Should be return 2 item in the array.', function() {
+    describe('Test 2', () => {
+        it('Should be return 2 item in the array.', () => {
             a.pushIfNotExists('Peter');
-            assert.equal(expect.test2, JSON.stringify(a));
+            expect(expectedResults.test2).toEqual(a[0]);
         });
     });
 
-    describe('Test 3', function() {
-        it('Should be return 2 item in the array.', function() {
+    describe('Test 3', () => {
+        it('Should be return 2 item in the array.', () => {
             a.pushIfNotExists('John');
-            assert.equal(expect.test3, JSON.stringify(a));
+            expect(expectedResults.test3).toEqual(a[0]);
         });
     });
 });
