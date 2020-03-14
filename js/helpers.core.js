@@ -9,6 +9,7 @@ import { unique } from './modules/unique';
 import { summ } from './modules/summ';
 import { average } from './modules/average';
 import { random } from './modules/random';
+import { getByKey } from './modules/getByKey';
 
 /**
  * Object helper
@@ -149,5 +150,17 @@ export class Arr extends Array {
      */
     get average() {
         return average(this[0]);
+    }
+
+    /**
+     * Javascript implementation of Arr::get
+     *
+     * @param {string} key
+     * @param {object|null} defaultValue
+     *
+     * @return {object|null}
+     */
+    getByKey(key, defaultValue) {
+        return getByKey(this[0], key, defaultValue);
     }
 }
