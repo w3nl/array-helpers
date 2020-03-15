@@ -96,11 +96,11 @@ export class Arr extends Array {
      * @return {int}
      */
     pushIfNotExists(newValue) {
-        if (this[0].indexOf(newValue) < 0) {
-            this[0].push(newValue);
+        if (this.indexOf(newValue) < 0) {
+            this.push(newValue);
         }
 
-        return this[0].length;
+        return this.length;
     }
 
     /**
