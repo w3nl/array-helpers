@@ -1,9 +1,22 @@
 {
     "name": "array-helpers",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "Usefull array helpers.",
     "files": [
-        "js/helpers.core.js"
+        "js/helpers.core.js",
+        "js/types.d.ts",
+        "js/modules/average.js",
+        "js/modules/diff.js",
+        "js/modules/getByKey.js",
+        "js/modules/intersect.js",
+        "js/modules/max.js",
+        "js/modules/min.js",
+        "js/modules/multifilter.js",
+        "js/modules/multikey.js",
+        "js/modules/multisort.js",
+        "js/modules/random.js",
+        "js/modules/summ.js",
+        "js/modules/unique.js"
     ],
     "main": "js/helpers.core.js",
     "types": "js/types.d.ts",
