@@ -2,55 +2,52 @@ import { min } from './min';
 import { max } from './max';
 
 export function multifilter(original, key, find, operator) {
-    return original.filter(value => {
-        if (Array.isArray(find)) {
-            if (
-                find.indexOf(value[key]) < 0 &&
-                (operator === true || operator === '!=' || operator === '<>')
+    return original.filter(item => {
+        let values = item[key];
+        let returnValue = false;
+
+        if (!values) {
+            return returnValue;
+        }
+
+        values = values.toString().split(',');
+
+        values.forEach(value => {
+            if (Array.isArray(find)) {
+                if (
+                    find.indexOf(value) < 0 &&
+                    (operator == true || operator == '!=' || operator == '<>')
+                ) {
+                    returnValue = true;
+                } else if (find.indexOf(value) >= 0 && !operator) {
+                    returnValue = true;
+                } else if (value > max(find) && operator == '>') {
+                    returnValue = true;
+                } else if (value >= max(find) && operator == '>=') {
+                    returnValue = true;
+                } else if (value < min(find) && operator == '<') {
+                    returnValue = true;
+                } else if (value <= min(find) && operator == '<=') {
+                    returnValue = true;
+                }
+            } else if (
+                value != find &&
+                (operator == true || operator == '!=' || operator == '<>')
             ) {
-                return true;
+                returnValue = true;
+            } else if (value == find && !operator) {
+                returnValue = true;
+            } else if (value > find && operator == '>') {
+                returnValue = true;
+            } else if (value >= find && operator == '>=') {
+                returnValue = true;
+            } else if (value < find && operator == '<') {
+                returnValue = true;
+            } else if (value <= find && operator == '<=') {
+                returnValue = true;
             }
-            if (find.indexOf(value[key]) >= 0 && !operator) {
-                return true;
-            }
-            if (value[key] > max(find) && operator === '>') {
-                return true;
-            }
-            if (value[key] >= max(find) && operator === '>=') {
-                return true;
-            }
-            if (value[key] < min(find) && operator === '<') {
-                return true;
-            }
-            if (value[key] <= min(find) && operator === '<=') {
-                return true;
-            }
+        });
 
-            return false;
-        }
-
-        if (
-            value[key] !== find &&
-            (operator === true || operator === '!=' || operator === '<>')
-        ) {
-            return true;
-        }
-        if (value[key] === find && !operator) {
-            return true;
-        }
-        if (value[key] > find && operator === '>') {
-            return true;
-        }
-        if (value[key] >= find && operator === '>=') {
-            return true;
-        }
-        if (value[key] < find && operator === '<') {
-            return true;
-        }
-        if (value[key] <= find && operator === '<=') {
-            return true;
-        }
-
-        return false;
+        return returnValue;
     });
 }

@@ -104,6 +104,37 @@ export class Arr extends Array {
     }
 
     /**
+     * Add multiple values to an array.
+     *
+     * @param {array} newValues
+     *
+     * @return {int}
+     */
+    pushMultiple(newValues) {
+        this.push(...newValues);
+
+        return this.length;
+    }
+
+    /**
+     * Add multiple values to an array.
+     * Only add the value if the value isnt in the array.
+     *
+     * @param {array} newValues
+     *
+     * @return {int}
+     */
+    pushMultipleIfNotExists(newValues) {
+        const array = this;
+
+        newValues.forEach(value => {
+            array.pushIfNotExists(value);
+        });
+
+        return array.length;
+    }
+
+    /**
      * The largest of the given numbers.
      * If at least one of the arguments cannot be converted to a number,
      * NaN is returned.

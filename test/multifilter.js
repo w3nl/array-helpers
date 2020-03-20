@@ -5,7 +5,7 @@ const exampleArray = new Arr([
         id: 0,
         name: 'John',
         age: 93,
-        city: 'Patmos',
+        city: ['Patmos', 'Rome'],
     },
     {
         id: 1,
@@ -47,7 +47,7 @@ const expectedResults = {
             id: 0,
             name: 'John',
             age: 93,
-            city: 'Patmos',
+            city: ['Patmos', 'Rome'],
         },
         {
             id: 2,
@@ -61,7 +61,7 @@ const expectedResults = {
             id: 0,
             name: 'John',
             age: 93,
-            city: 'Patmos',
+            city: ['Patmos', 'Rome'],
         },
         {
             id: 2,
@@ -75,7 +75,7 @@ const expectedResults = {
             id: 0,
             name: 'John',
             age: 93,
-            city: 'Patmos',
+            city: ['Patmos', 'Rome'],
         },
         {
             id: 2,
@@ -123,7 +123,7 @@ const expectedResults = {
             id: 0,
             name: 'John',
             age: 93,
-            city: 'Patmos',
+            city: ['Patmos', 'Rome'],
         },
         {
             id: 1,
@@ -151,7 +151,7 @@ const expectedResults = {
             id: 0,
             name: 'John',
             age: 93,
-            city: 'Patmos',
+            city: ['Patmos', 'Rome'],
         },
         {
             id: 2,
@@ -165,7 +165,7 @@ const expectedResults = {
             id: 0,
             name: 'John',
             age: 93,
-            city: 'Patmos',
+            city: ['Patmos', 'Rome'],
         },
         {
             id: 2,
@@ -200,6 +200,26 @@ const expectedResults = {
             name: 'Luke',
             age: 84,
             city: 'Boeotia',
+        },
+        {
+            id: 2,
+            name: 'Paul',
+            age: 62,
+            city: 'Rome',
+        },
+    ]),
+    test13: JSON.stringify([
+        {
+            id: 0,
+            name: 'John',
+            age: 93,
+            city: ['Patmos', 'Rome'],
+        },
+        {
+            id: 1,
+            name: 'Peter',
+            age: 62,
+            city: 'Rome',
         },
         {
             id: 2,
@@ -305,5 +325,19 @@ describe('Test 12 (multiple <=)', () => {
         expect(expectedResults.test12).toEqual(
             JSON.stringify(exampleArray.multifilter('age', ['84', '85'], '<='))
         );
+    });
+});
+
+describe('Test 13 (find in multiple values)', () => {
+    it('Should return 3 items from the array, where the city contains Rome.', () => {
+        expect(expectedResults.test13).toEqual(
+            JSON.stringify(exampleArray.multifilter('city', ['Rome']))
+        );
+    });
+});
+
+describe('Test 14', () => {
+    it('Should return an empty array if the key doesnt exists', () => {
+        expect([]).toEqual(exampleArray.multifilter('example', 'notfound'));
     });
 });

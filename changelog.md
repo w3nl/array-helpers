@@ -1,3 +1,8 @@
+2.1.0 - 2020-03-20
+=====
+
+* Add pushMultiple and pusMultipleIfNotExists
+
 2.0.0 - 2020-03-14
 =====
 
