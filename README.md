@@ -212,7 +212,7 @@ Returns an array containing the values that are present in all the arrays.
 If the 2nd parameter is true, the 1st parameter can contain multiple arrays.
 
 ```
-var a = ['John', 'Peter', 'Luke'];
+var a = new Arr(['John', 'Peter', 'Luke']);
 var b = ['Peter', 'Luke', 'Paul'];
 var c = ['Luke', 'Paul', 'John'];
 
@@ -235,7 +235,7 @@ If the 2nd parameter is true, it return all values that are not present in any o
 
 ```
 
-var a = ['John', 'Peter', 'Luke'];
+var a = new Arr(['John', 'Peter', 'Luke']);
 var b = ['Peter', 'Luke', 'Paul'];
 
 a.diff(b);
@@ -254,7 +254,7 @@ Removes duplicate values from an array.
 Takes the array and returns a new array without duplicate values.
 
 ```
-var a = ['John', 'Peter', 'Luke', 'Peter', 'Luke', 'Paul'];
+var a = new Arr(['John', 'Peter', 'Luke', 'Peter', 'Luke', 'Paul']);
 
 a.unique;
 
@@ -268,7 +268,7 @@ Only push the value to the array if the value doesnt exists in the array.
 Returns the new length property of the object upon which the method was called.
 
 ```
-var a = [];
+var a = new Arr();
 
 a.pushIfNotExists('John');
 
@@ -283,12 +283,90 @@ a.pushIfNotExists('John');
 ['John', 'Peter']
 ```
 
+## pushMultipleIfNotExists
+
+Add multiple values to an array.
+Only push the value to the array if the value doesnt exists in the array.
+
+Returns the new length property of the object upon which the method was called.
+
+```
+var a = new Arr();
+
+a.pushMultipleIfNotExists([
+    'John',
+    'Peter'
+]);
+
+[
+    'John',
+    'Peter'
+]
+
+a.pushMultipleIfNotExists([
+    'Luke',
+    'Paul'
+]);
+
+[
+    'John',
+    'Peter',
+    'Luke',
+    'Paul'
+]
+
+a.pushMultipleIfNotExists([
+    'John',
+    'Peter'
+]);
+
+[
+    'John',
+    'Peter',
+    'Luke',
+    'Paul'
+]
+```
+
+## pushMultiple
+
+Add multiple values to an array.
+
+Returns the new length property of the object upon which the method was called.
+
+```
+var a = new Arr();
+
+a.pushMultiple([
+    'John',
+    'Peter'
+]);
+
+[
+    'John',
+    'Peter'
+]
+
+a.pushMultiple([
+    'Luke',
+    'Paul'
+]);
+
+
+[
+    'John',
+    'Peter',
+    'Luke',
+    'Paul'
+]
+```
+
 ## max
 
 The largest of the given numbers. If at least one of the arguments cannot be converted to a number, NaN is returned.
 
 ```
-var exampleArray = [1,2,3];
+var exampleArray = new Arr([1,2,3]);
 
 exampleArray.max;
 
@@ -300,7 +378,7 @@ exampleArray.max;
 The smallest of the given numbers. If at least one of the arguments cannot be converted to a number, NaN is returned.
 
 ```
-var exampleArray = [1,2,3];
+var exampleArray = new Arr([1,2,3]);
 
 exampleArray.min;
 
@@ -312,7 +390,7 @@ exampleArray.min;
 Get a random value of an array.
 
 ```
-var exampleArray = [1,2,3];
+var exampleArray = new Arr([1,2,3]);
 
 exampleArray.random;
 
@@ -324,7 +402,7 @@ e.g. 2
 The summ of all values.
 
 ```
-var exampleArray = [1,2,3];
+var exampleArray = new Arr([1,2,3]);
 
 exampleArray.summ;
 
@@ -336,7 +414,7 @@ exampleArray.summ;
 Get the average of all values.
 
 ```
-var exampleArray = [1,2,3];
+var exampleArray = new Arr([1,2,3]);
 
 exampleArray.average;
 

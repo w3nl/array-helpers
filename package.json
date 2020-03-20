@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "2.0.2",
+    "version": "2.1.0",
     "description": "Usefull array helpers.",
     "files": [
         "js/helpers.core.js"
@@ -38,7 +38,7 @@
         "babel-eslint": "^10.1.0",
         "babel-jest": "^25.1.0",
         "codecov": "^3.6.5",
-        "coveralls": "^3.0.9",
+        "coveralls": "^3.0.11",
         "eslint": "^6.8.0",
         "eslint-config-airbnb": "^18.1.0",
         "eslint-config-prettier": "^6.10.0",
