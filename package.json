@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "2.1.2",
+    "version": "2.2.0",
     "description": "Usefull array helpers.",
     "files": [
         "js/helpers.core.js"

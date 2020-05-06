@@ -1,4 +1,4 @@
-export function diff(currentArray, otherArray, total) {
+module.exports = function diff(currentArray, otherArray, total) {
     const differenceArray = currentArray.filter(
         value => otherArray.indexOf(value) < 0
     );
@@ -11,4 +11,4 @@ export function diff(currentArray, otherArray, total) {
     }
 
     return differenceArray.concat(differenceArrayB);
-}
+};

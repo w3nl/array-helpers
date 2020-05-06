@@ -1,20 +1,20 @@
-import { multisort } from './modules/multisort';
-import { multifilter } from './modules/multifilter';
-import { multikey } from './modules/multikey';
-import { intersect } from './modules/intersect';
-import { min } from './modules/min';
-import { max } from './modules/max';
-import { diff } from './modules/diff';
-import { unique } from './modules/unique';
-import { summ } from './modules/summ';
-import { average } from './modules/average';
-import { random } from './modules/random';
-import { getByKey } from './modules/getByKey';
+const multisort = require('./modules/multisort');
+const multifilter = require('./modules/multifilter');
+const multikey = require('./modules/multikey');
+const intersect = require('./modules/intersect');
+const min = require('./modules/min');
+const max = require('./modules/max');
+const diff = require('./modules/diff');
+const unique = require('./modules/unique');
+const summ = require('./modules/summ');
+const average = require('./modules/average');
+const random = require('./modules/random');
+const getByKey = require('./modules/getByKey');
 
 /**
  * Object helper
  */
-export class Arr extends Array {
+class Arr extends Array {
     static get [Symbol.species]() {
         return Array;
     }
@@ -195,3 +195,19 @@ export class Arr extends Array {
         return getByKey(this[0], key, defaultValue);
     }
 }
+
+module.exports = {
+    Arr,
+    multisort,
+    multifilter,
+    multikey,
+    intersect,
+    min,
+    max,
+    diff,
+    unique,
+    summ,
+    average,
+    random,
+    getByKey,
+};

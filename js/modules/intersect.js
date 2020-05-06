@@ -1,4 +1,4 @@
-export function intersect(original, array, multi) {
+module.exports = function intersect(original, array, multi) {
     return original.filter(value => {
         let found = 0;
 
@@ -21,4 +21,4 @@ export function intersect(original, array, multi) {
 
         return false;
     });
-}
+};

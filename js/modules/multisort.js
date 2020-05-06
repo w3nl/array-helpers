@@ -1,4 +1,4 @@
-export function multisort(original, key, direction) {
+module.exports = function multisort(original, key, direction) {
     let moveDirection = 1;
 
     if (direction === 'desc') {
@@ -27,4 +27,4 @@ export function multisort(original, key, direction) {
 
         return 0;
     });
-}
+};
