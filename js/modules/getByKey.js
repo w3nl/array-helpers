@@ -1,7 +1,7 @@
-export function getByKey(original, key, defaultValue) {
+module.exports = function getByKey(original, key, defaultValue) {
     const keys = key.split('.');
 
-    let reference = original;;
+    let reference = original;
 
     while (keys.length > 0) {
         const referenceKey = keys.shift();
@@ -17,4 +17,4 @@ export function getByKey(original, key, defaultValue) {
     }
 
     return reference;
-}
+};

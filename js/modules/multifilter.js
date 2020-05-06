@@ -1,7 +1,7 @@
-import { min } from './min';
-import { max } from './max';
+const min = require('./min');
+const max = require('./max');
 
-export function multifilter(original, key, find, operator) {
+module.exports = function multifilter(original, key, find, operator) {
     return original.filter(item => {
         let values = item[key];
         let returnValue = false;
@@ -50,4 +50,4 @@ export function multifilter(original, key, find, operator) {
 
         return returnValue;
     });
-}
+};
