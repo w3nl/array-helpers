@@ -1,3 +1,13 @@
+2.2.1 - 2020-05-07
+=====
+
+* Add all files to the package
+
+2.2.0 - 2020-05-06
+=====
+
+* Use require and not import
+
 2.1.2 - 2020-04-22
 =====
 

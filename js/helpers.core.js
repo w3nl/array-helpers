@@ -1,15 +1,15 @@
-const multisort = require('./modules/multisort');
-const multifilter = require('./modules/multifilter');
-const multikey = require('./modules/multikey');
-const intersect = require('./modules/intersect');
-const min = require('./modules/min');
-const max = require('./modules/max');
-const diff = require('./modules/diff');
-const unique = require('./modules/unique');
-const summ = require('./modules/summ');
-const average = require('./modules/average');
-const random = require('./modules/random');
-const getByKey = require('./modules/getByKey');
+const multisort = require('./modules/multisort.js');
+const multifilter = require('./modules/multifilter.js');
+const multikey = require('./modules/multikey.js');
+const intersect = require('./modules/intersect.js');
+const min = require('./modules/min.js');
+const max = require('./modules/max.js');
+const diff = require('./modules/diff.js');
+const unique = require('./modules/unique.js');
+const summ = require('./modules/summ.js');
+const average = require('./modules/average.js');
+const random = require('./modules/random.js');
+const getByKey = require('./modules/getByKey.js');
 
 /**
  * Object helper
