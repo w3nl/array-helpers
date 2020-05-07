@@ -1,4 +1,4 @@
-const summ = require('./summ');
+const summ = require('./summ.js');
 
 module.exports = function average(originalArray) {
     if (!Array.isArray(originalArray) || originalArray.length < 1) {
