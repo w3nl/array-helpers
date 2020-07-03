@@ -63,7 +63,6 @@
         "eslint-plugin-vue": "^6.2.2",
         "esm": "^3.2.25",
         "jest": "^26.1.0",
-        "jscpd": "^3.2.1",
         "prettier": "^2.0.5"
     },
     "dependencies": {},
