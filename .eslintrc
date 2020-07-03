@@ -4,16 +4,13 @@
     ],
     "rules": {
         "consistent-return": "warn",
+        "eqeqeq": "warn"
     },
     "env": {
         "es6": true,
         "node": true,
-        "jquery": true,
+        "jquery": false,
         "browser": true
-    },
-    "globals": {
-        "Modernizr": false,
-        "W2Form": false
     },
     "parserOptions": {
         "sourceType": "module"

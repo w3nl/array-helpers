@@ -1,9 +1,9 @@
 module.exports = function intersect(original, array, multi) {
-    return original.filter(value => {
+    return original.filter((value) => {
         let found = 0;
 
         if (multi) {
-            array.forEach(arrayValues => {
+            array.forEach((arrayValues) => {
                 if (arrayValues.indexOf(value) >= 0) {
                     found += 1;
                 }
