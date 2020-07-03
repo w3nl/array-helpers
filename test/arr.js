@@ -1,7 +1,7 @@
 import { Arr } from '../js/helpers.core';
 
 const original = new Arr(1, 2, 3);
-const mapped = original.map(x => x * x);
+const mapped = original.map((x) => x * x);
 
 describe('Instance', () => {
     it('Test if the original output from Arr is a instance of Arr', () => {

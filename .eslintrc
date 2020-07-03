@@ -4,6 +4,7 @@
     ],
     "rules": {
         "consistent-return": "warn",
+        "eqeqeq": "warn"
     },
     "env": {
         "es6": true,

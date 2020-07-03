@@ -1,9 +1,9 @@
 module.exports = function multikey(original, key) {
-    return original.map(value => {
+    return original.map((value) => {
         const item = {};
 
         if (typeof key === 'object') {
-            key.forEach(itemKey => {
+            key.forEach((itemKey) => {
                 item[itemKey] = value[itemKey];
             });
 

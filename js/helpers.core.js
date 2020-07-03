@@ -127,7 +127,7 @@ class Arr extends Array {
     pushMultipleIfNotExists(newValues) {
         const array = this;
 
-        newValues.forEach(value => {
+        newValues.forEach((value) => {
             array.pushIfNotExists(value);
         });
 
