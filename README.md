@@ -1,6 +1,7 @@
 # Array Helpers
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-stats] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Codecov Status][codecov-image]][codecov-url] [![Scrutinizer Code Quality][scrutinizer-image]][scrutinizer-url]
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fw3nl%2Farray-helpers.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fw3nl%2Farray-helpers?ref=badge_shield)
 
 Array helpers, so you can get very fast your data from the array.
 
@@ -467,3 +468,7 @@ An example is included `example/node.js`
 [codecov-image]: https://img.shields.io/codecov/c/github/w3nl/array-helpers.svg
 [scrutinizer-url]: https://scrutinizer-ci.com/g/w3nl/array-helpers/?branch=master
 [scrutinizer-image]: https://scrutinizer-ci.com/g/w3nl/array-helpers/badges/quality-score.png?b=master
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fw3nl%2Farray-helpers.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fw3nl%2Farray-helpers?ref=badge_large)
