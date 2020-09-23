@@ -1,4 +1,4 @@
-import { Arr } from '../js/helpers.core';
+import { Arr } from '../src/helpers';
 
 describe('First', () => {
     it('Should return the first, in this example should it be 1.', () => {

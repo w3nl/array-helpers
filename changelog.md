@@ -1,4 +1,9 @@
-2.2.2 - 2020-09-23
+3.0.0 - 2020-09-23
+=====
+
+* Add microbundle to bundle the package to every usage
+
+2.3.0 - 2020-09-23
 =====
 
 * Update dependencies

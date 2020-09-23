@@ -1,4 +1,4 @@
-import { Arr } from '../js/helpers.core';
+import { Arr } from '../src/helpers';
 
 const getTestCases = [
     {
