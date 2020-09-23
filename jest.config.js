@@ -8,7 +8,7 @@ module.exports = {
     transformIgnorePatterns: ['/node_modules/'],
 
     moduleNameMapper: {
-        '^@/(.*)$': '<rootDir>/js/$1',
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
 
     testMatch: ['**/test/**/*.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)'],
@@ -16,5 +16,5 @@ module.exports = {
     testURL: 'http://localhost/',
 
     collectCoverage: true,
-    collectCoverageFrom: ['js/**/*.js'],
+    collectCoverageFrom: ['src/**/*.js'],
 };
