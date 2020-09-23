@@ -421,6 +421,30 @@ exampleArray.average;
 2
 ```
 
+## first
+
+Get the first of all values.
+
+```
+var exampleArray = new Arr([1,2,3]);
+
+exampleArray.first;
+
+1
+```
+
+## last
+
+Get the last of all values.
+
+```
+var exampleArray = new Arr([1,2,3]);
+
+exampleArray.last;
+
+3
+```
+
 
 ## Test the package.
 

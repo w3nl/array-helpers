@@ -10,6 +10,8 @@ const summ = require('./modules/summ.js');
 const average = require('./modules/average.js');
 const random = require('./modules/random.js');
 const getByKey = require('./modules/getByKey.js');
+const first = require('./modules/first.js');
+const last = require('./modules/last.js');
 
 /**
  * Object helper
@@ -194,6 +196,24 @@ class Arr extends Array {
     getByKey(key, defaultValue) {
         return getByKey(this[0], key, defaultValue);
     }
+
+    /**
+     * Javascript implementation of Arr::first
+     *
+     * @return {object|null}
+     */
+    get first() {
+        return first(this[0]);
+    }
+
+    /**
+     * Javascript implementation of Arr::last
+     *
+     * @return {object|null}
+     */
+    get last() {
+        return last(this[0]);
+    }
 }
 
 module.exports = {
@@ -210,4 +230,6 @@ module.exports = {
     average,
     random,
     getByKey,
+    first,
+    last,
 };

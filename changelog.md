@@ -1,3 +1,9 @@
+2.2.2 - 2020-09-23
+=====
+
+* Update dependencies
+* Add first and last
+
 2.2.2 - 2020-07-03
 =====
 
