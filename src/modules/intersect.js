@@ -1,4 +1,4 @@
-module.exports = function intersect(original, array, multi) {
+export default function intersect(original, array, multi) {
     return original.filter((value) => {
         if (multi) {
             const found = array.reduce((accumulator, currentValue) => {
@@ -14,4 +14,4 @@ module.exports = function intersect(original, array, multi) {
 
         return array.indexOf(value) >= 0;
     });
-};
+}

@@ -1,5 +1,5 @@
-const min = require('./min.js');
-const max = require('./max.js');
+import min from './min';
+import max from './max';
 
 class Match {
     constructor(find, operator) {
@@ -12,7 +12,7 @@ class Match {
             return this.checkOperators(value, this.find.indexOf(value) < 0);
         }
 
-        return this.checkOperators(value, value != this.find);
+        return this.checkOperators(value, String(value) !== String(this.find));
     }
 
     checkOperators(value, find) {
@@ -64,6 +64,6 @@ class Match {
     }
 }
 
-module.exports = function multifilter(original, key, find, operator) {
+export default function multifilter(original, key, find, operator) {
     return Match.create(original, key, find, operator);
-};
+}
