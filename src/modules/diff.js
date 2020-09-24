@@ -26,12 +26,12 @@ class Diff {
     }
 
     static create(currentArray, otherArray, total) {
-        const diff = new Diff(currentArray, otherArray, total);
+        const differ = new Diff(currentArray, otherArray, total);
 
-        return diff.compare;
+        return differ.compare;
     }
 }
 
-module.exports = function diff(currentArray, otherArray, total) {
+export default function diff(currentArray, otherArray, total) {
     return Diff.create(currentArray, otherArray, total);
-};
+}

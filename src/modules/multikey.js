@@ -1,4 +1,4 @@
-module.exports = function multikey(original, key) {
+export default function multikey(original, key) {
     return original.map((value) => {
         const item = {};
 
@@ -12,4 +12,4 @@ module.exports = function multikey(original, key) {
 
         return value[key];
     });
-};
+}

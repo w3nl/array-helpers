@@ -38,6 +38,6 @@ class Sorter {
     }
 }
 
-module.exports = function multisort(original, key, direction) {
+export default function multisort(original, key, direction) {
     return Sorter.create(original, key, direction);
-};
+}

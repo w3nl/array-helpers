@@ -1,17 +1,17 @@
-const multisort = require('./modules/multisort.js');
-const multifilter = require('./modules/multifilter.js');
-const multikey = require('./modules/multikey.js');
-const intersect = require('./modules/intersect.js');
-const min = require('./modules/min.js');
-const max = require('./modules/max.js');
-const diff = require('./modules/diff.js');
-const unique = require('./modules/unique.js');
-const summ = require('./modules/summ.js');
-const average = require('./modules/average.js');
-const random = require('./modules/random.js');
-const getByKey = require('./modules/getByKey.js');
-const first = require('./modules/first.js');
-const last = require('./modules/last.js');
+import multisort from './modules/multisort';
+import multifilter from './modules/multifilter';
+import multikey from './modules/multikey';
+import intersect from './modules/intersect';
+import min from './modules/min';
+import max from './modules/max';
+import diff from './modules/diff';
+import unique from './modules/unique';
+import summ from './modules/summ';
+import average from './modules/average';
+import random from './modules/random';
+import getByKey from './modules/getByKey';
+import first from './modules/first';
+import last from './modules/last';
 
 /**
  * Object helper
@@ -216,7 +216,7 @@ class Arr extends Array {
     }
 }
 
-module.exports = {
+export {
     Arr,
     multisort,
     multifilter,

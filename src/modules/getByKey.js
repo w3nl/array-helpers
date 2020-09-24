@@ -1,4 +1,4 @@
-module.exports = function getByKey(original, key, defaultValue) {
+export default function getByKey(original, key, defaultValue) {
     const keys = key.split('.');
 
     let reference = original;
@@ -17,4 +17,4 @@ module.exports = function getByKey(original, key, defaultValue) {
     }
 
     return reference;
-};
+}
