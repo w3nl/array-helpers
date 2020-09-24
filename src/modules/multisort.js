@@ -30,10 +30,14 @@ class Sorter {
 
         return 0;
     }
+
+    static create(original, key, direction) {
+        const sorter = new Sorter(key, direction);
+
+        return sorter.order(original);
+    }
 }
 
 module.exports = function multisort(original, key, direction) {
-    const sorter = new Sorter(key, direction);
-
-    return sorter.order(original);
+    return Sorter.create(original, key, direction);
 };

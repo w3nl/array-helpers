@@ -1,14 +1,37 @@
-module.exports = function diff(currentArray, otherArray, total) {
-    const differenceArray = currentArray.filter(
-        (value) => otherArray.indexOf(value) < 0
-    );
-    let differenceArrayB = [];
+class Diff {
+    constructor(currentArray, otherArray, total) {
+        this.currentArray = currentArray;
+        this.otherArray = otherArray;
+        this.total = total;
+    }
 
-    if (total) {
-        differenceArrayB = otherArray.filter(
-            (value) => currentArray.indexOf(value) < 0
+    get differenceArray() {
+        return this.currentArray.filter(
+            (value) => this.otherArray.indexOf(value) < 0
         );
     }
 
-    return differenceArray.concat(differenceArrayB);
+    get differenceArrayB() {
+        if (!this.total) {
+            return [];
+        }
+
+        return this.otherArray.filter(
+            (value) => this.currentArray.indexOf(value) < 0
+        );
+    }
+
+    get compare() {
+        return this.differenceArray.concat(this.differenceArrayB);
+    }
+
+    static create(currentArray, otherArray, total) {
+        const diff = new Diff(currentArray, otherArray, total);
+
+        return diff.compare;
+    }
+}
+
+module.exports = function diff(currentArray, otherArray, total) {
+    return Diff.create(currentArray, otherArray, total);
 };
