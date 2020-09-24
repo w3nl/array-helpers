@@ -1,53 +1,69 @@
 const min = require('./min.js');
 const max = require('./max.js');
 
-module.exports = function multifilter(original, key, find, operator) {
-    return original.filter((item) => {
-        let values = item[key];
-        let returnValue = false;
+class Match {
+    constructor(find, operator) {
+        this.find = find;
+        this.operator = operator || null;
+    }
 
-        if (!values) {
-            return returnValue;
+    check(value) {
+        if (Array.isArray(this.find)) {
+            return this.checkOperators(value, this.find.indexOf(value) < 0);
         }
 
-        values = values.toString().split(',');
+        return this.checkOperators(value, value != this.find);
+    }
 
-        values.forEach((value) => {
-            if (Array.isArray(find)) {
-                if (
-                    find.indexOf(value) < 0 &&
-                    (operator == true || operator == '!=' || operator == '<>')
-                ) {
-                    returnValue = true;
-                } else if (find.indexOf(value) >= 0 && !operator) {
-                    returnValue = true;
-                } else if (value > max(find) && operator == '>') {
-                    returnValue = true;
-                } else if (value >= max(find) && operator == '>=') {
-                    returnValue = true;
-                } else if (value < min(find) && operator == '<') {
-                    returnValue = true;
-                } else if (value <= min(find) && operator == '<=') {
-                    returnValue = true;
-                }
-            } else if (
-                value != find &&
-                (operator == true || operator == '!=' || operator == '<>')
-            ) {
-                returnValue = true;
-            } else if (value == find && !operator) {
-                returnValue = true;
-            } else if (value > find && operator == '>') {
-                returnValue = true;
-            } else if (value >= find && operator == '>=') {
-                returnValue = true;
-            } else if (value < find && operator == '<') {
-                returnValue = true;
-            } else if (value <= find && operator == '<=') {
-                returnValue = true;
+    checkOperators(value, find) {
+        const maxValue = max(this.find);
+        const minValue = min(this.find);
+        const hasMax = maxValue !== null;
+        const hasMin = minValue !== null;
+
+        const notOperator =
+            find && (this.operator === '!=' || this.operator === '<>');
+        const noInput = !find && !this.operator;
+        const gtOperator =
+            ((value > maxValue && hasMax) || value > this.find) &&
+            this.operator === '>';
+        const gteOperator =
+            ((value >= maxValue && hasMax) || value >= this.find) &&
+            this.operator === '>=';
+        const ltOperator =
+            ((value < minValue && hasMin) || value < this.find) &&
+            this.operator === '<';
+        const lteOperator =
+            ((value <= minValue && hasMin) || value <= this.find) &&
+            this.operator === '<=';
+
+        return (
+            notOperator ||
+            noInput ||
+            gtOperator ||
+            gteOperator ||
+            ltOperator ||
+            lteOperator
+        );
+    }
+
+    static create(original, key, find, operator) {
+        const matcher = new Match(find, operator);
+
+        return original.filter((item) => {
+            let values = item[key];
+
+            if (!values) {
+                return false;
             }
-        });
 
-        return returnValue;
-    });
+            values = values.toString().split(',');
+
+            return values.some(matcher.check.bind(matcher));
+        });
+    }
+}
+
+module.exports = function multifilter(original, key, find, operator) {
+    return Match.create(original, key, find, operator);
 };
