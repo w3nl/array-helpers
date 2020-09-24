@@ -8,45 +8,43 @@ class Match {
     }
 
     check(value) {
-        let returnValue = false;
-
         if (Array.isArray(this.find)) {
-            if (
-                this.find.indexOf(value) < 0 &&
-                (this.operator == true ||
-                    this.operator == '!=' ||
-                    this.operator == '<>')
-            ) {
-                returnValue = true;
-            } else if (this.find.indexOf(value) >= 0 && !this.operator) {
-                returnValue = true;
-            } else if (value > max(this.find) && this.operator == '>') {
-                returnValue = true;
-            } else if (value >= max(this.find) && this.operator == '>=') {
-                returnValue = true;
-            } else if (value < min(this.find) && this.operator == '<') {
-                returnValue = true;
-            } else if (value <= min(this.find) && this.operator == '<=') {
-                returnValue = true;
-            }
-        } else if (
-            value != this.find &&
-            (this.operator == true || this.operator == '!=' || this.operator == '<>')
-        ) {
-            returnValue = true;
-        } else if (value == this.find && !this.operator) {
-            returnValue = true;
-        } else if (value > this.find && this.operator == '>') {
-            returnValue = true;
-        } else if (value >= this.find && this.operator == '>=') {
-            returnValue = true;
-        } else if (value < this.find && this.operator == '<') {
-            returnValue = true;
-        } else if (value <= this.find && this.operator == '<=') {
-            returnValue = true;
+            return this.checkOperators(value, this.find.indexOf(value) < 0);
         }
 
-        return returnValue;
+        return this.checkOperators(value, value != this.find);
+    }
+
+    checkOperators(value, find) {
+        const maxValue = max(this.find);
+        const minValue = min(this.find);
+        const hasMax = maxValue !== null;
+        const hasMin = minValue !== null;
+
+        const notOperator =
+            find && (this.operator === '!=' || this.operator === '<>');
+        const noInput = !find && !this.operator;
+        const gtOperator =
+            ((value > maxValue && hasMax) || value > this.find) &&
+            this.operator === '>';
+        const gteOperator =
+            ((value >= maxValue && hasMax) || value >= this.find) &&
+            this.operator === '>=';
+        const ltOperator =
+            ((value < minValue && hasMin) || value < this.find) &&
+            this.operator === '<';
+        const lteOperator =
+            ((value <= minValue && hasMin) || value <= this.find) &&
+            this.operator === '<=';
+
+        return (
+            notOperator ||
+            noInput ||
+            gtOperator ||
+            gteOperator ||
+            ltOperator ||
+            lteOperator
+        );
     }
 
     static create(original, key, find, operator) {
@@ -54,13 +52,13 @@ class Match {
 
         return original.filter((item) => {
             let values = item[key];
-    
+
             if (!values) {
                 return false;
             }
-    
+
             values = values.toString().split(',');
-    
+
             return values.some(matcher.check.bind(matcher));
         });
     }
