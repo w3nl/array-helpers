@@ -1,13 +1,16 @@
-module.exports = function multisort(original, key, direction) {
-    let moveDirection = 1;
-
-    if (direction === 'desc') {
-        moveDirection = -1;
+class Sorter {
+    constructor(key, direction) {
+        this.key = key;
+        this.moveDirection = direction === 'desc' ? -1 : 1;
     }
 
-    return original.sort((a, b) => {
-        let nameA = a[key];
-        let nameB = b[key];
+    order(original) {
+        return original.sort(this.compare.bind(this));
+    }
+
+    compare(firstElement, secondElement) {
+        let nameA = firstElement[this.key];
+        let nameB = secondElement[this.key];
 
         if (typeof nameA === 'string') {
             nameA = nameA.toUpperCase();
@@ -18,13 +21,19 @@ module.exports = function multisort(original, key, direction) {
         }
 
         if (nameA < nameB) {
-            return -1 * moveDirection;
+            return -1 * this.moveDirection;
         }
 
         if (nameA > nameB) {
-            return 1 * moveDirection;
+            return 1 * this.moveDirection;
         }
 
         return 0;
-    });
+    }
+}
+
+module.exports = function multisort(original, key, direction) {
+    const sorter = new Sorter(key, direction);
+
+    return sorter.order(original);
 };
