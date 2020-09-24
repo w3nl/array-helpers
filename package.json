@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "description": "Usefull array helpers.",
     "files": [
         "src/helpers.js",
@@ -74,7 +74,7 @@
         "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-jsx-a11y": "^6.3.1",
         "eslint-plugin-prettier": "^3.1.4",
-        "eslint-plugin-react": "^7.21.0",
+        "eslint-plugin-react": "^7.21.1",
         "eslint-plugin-vue": "^6.2.2",
         "esm": "^3.2.25",
         "jest": "^26.4.2",
