@@ -1,24 +1,17 @@
 module.exports = function intersect(original, array, multi) {
     return original.filter((value) => {
-        let found = 0;
-
         if (multi) {
-            array.forEach((arrayValues) => {
-                if (arrayValues.indexOf(value) >= 0) {
-                    found += 1;
+            const found = array.reduce((accumulator, currentValue) => {
+                if (currentValue.indexOf(value) >= 0) {
+                    return accumulator + 1;
                 }
-            });
 
-            if (found === array.length) {
-                return true;
-            }
-            return false;
+                return accumulator;
+            }, 0);
+
+            return found === array.length;
         }
 
-        if (array.indexOf(value) >= 0) {
-            return true;
-        }
-
-        return false;
+        return array.indexOf(value) >= 0;
     });
 };
