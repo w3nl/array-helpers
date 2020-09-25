@@ -12,6 +12,7 @@ import random from './modules/random';
 import getByKey from './modules/getByKey';
 import first from './modules/first';
 import last from './modules/last';
+import update from './modules/update';
 
 /**
  * Object helper
@@ -214,6 +215,18 @@ class Arr extends Array {
     get last() {
         return last(this[0]);
     }
+
+    /**
+     * Update multiple items in an array
+     *
+     * @param {array} newValues
+     * @param {array} keys
+     *
+     * @return {array}
+     */
+    update(newValues, keys) {
+        return update(this[0], newValues, keys);
+    }
 }
 
 export {
@@ -232,4 +245,5 @@ export {
     getByKey,
     first,
     last,
+    update,
 };

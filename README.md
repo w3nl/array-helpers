@@ -445,6 +445,43 @@ exampleArray.last;
 3
 ```
 
+## update
+
+Update items in an array.
+
+```
+var exampleArray = new Arr([
+    {
+        id: 1,
+        name: 'first'
+    },
+    {
+        id: 2,
+        name: 'second'
+    }
+]);
+
+exampleArray.udate(
+    {
+        name: 'last'
+    }, 
+    [
+        'id'
+    ]
+);
+
+[
+    {
+        id: 1,
+        name: 'first'
+    },
+    {
+        id: 2,
+        name: 'last'
+    }
+]
+```
+
 
 ## Test the package.
 
