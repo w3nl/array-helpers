@@ -461,10 +461,13 @@ var exampleArray = new Arr([
     }
 ]);
 
-exampleArray.udate(
-    {
-        name: 'last'
-    }, 
+exampleArray.update(
+    [
+        {
+            id: 2,
+            name: 'last'
+        }
+    ], 
     [
         'id'
     ]
