@@ -1,9 +1,9 @@
 export default function update(originalArray, newValues, keys) {
-    return originalArray.map((value, key) => {
-        if (keys.include(key)) {
-            return {...value, ...newValues};
-        }
+    return originalArray.map((item) => {
+        const found = newValues.find((newItem) =>
+            keys.every((key) => newItem[key] === item[key])
+        );
 
-        return value;
+        return found ? { ...item, ...found } : item;
     });
 }
