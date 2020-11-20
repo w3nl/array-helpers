@@ -1,6 +1,6 @@
 # Array Helpers
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-stats] ![Node CI][build-image] [![Coveralls Status][coveralls-image]][coveralls-url] [![Codecov Status][codecov-image]][codecov-url] [![Scrutinizer Code Quality][scrutinizer-image]][scrutinizer-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-stats] ![Node CI][build-image] [![Coveralls Status][coveralls-image]][coveralls-url] [![Scrutinizer Code Quality][scrutinizer-image]][scrutinizer-url]
 
 Array helpers, so you can get very fast your data from the array.
 
@@ -525,8 +525,6 @@ An example is included `example/node.js`
 [npm-stats]: https://npm-stat.com/charts.html?package=array-helpers
 [coveralls-url]: https://coveralls.io/r/w3nl/array-helpers
 [coveralls-image]: https://img.shields.io/coveralls/w3nl/array-helpers/master.svg
-[codecov-url]: https://codecov.io/gh/w3nl/array-helpers
-[codecov-image]: https://img.shields.io/codecov/c/github/w3nl/array-helpers.svg
 [scrutinizer-url]: https://scrutinizer-ci.com/g/w3nl/array-helpers/?branch=master
 [scrutinizer-image]: https://scrutinizer-ci.com/g/w3nl/array-helpers/badges/quality-score.png?b=master
 [build-image]: https://github.com/hckrnews/paginator/workflows/Node%20CI/badge.svg?branch=main
