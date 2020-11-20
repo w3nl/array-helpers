@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "3.6.1",
+    "version": "4.0.0",
     "description": "Usefull array helpers.",
     "files": [
         "src/helpers.js",
@@ -31,7 +31,15 @@
     "source": "src/helpers.js",
     "main": "dist/helpers.js",
     "module": "dist/helpers.module.js",
+    "esmodule": "dist/helpers.modern.js",
     "unpkg": "dist/helpers.umd.js",
+    "umd:main": "dist/helpers.umd.js",
+    "exports": {
+        ".": {
+            "require": "./dist/helpers.js",
+            "default": "./dist/helpers.module.js"
+        }
+    },
     "types": "src/types.d.ts",
     "repository": {
         "type": "git",
@@ -49,7 +57,7 @@
     "bugs": {
         "url": "https://github.com/w3nl/array-helpers/issues"
     },
-    "license": "GPL-3.0",
+    "license": "MIT",
     "homepage": "https://github.com/w3nl/array-helpers#readme",
     "scripts": {
         "build": "microbundle",
@@ -67,10 +75,10 @@
         "babel-jest": "^26.6.3",
         "codecov": "^3.8.1",
         "coveralls": "^3.1.0",
-        "eslint": "^7.12.1",
-        "eslint-config-airbnb": "^18.2.0",
+        "eslint": "^7.13.0",
+        "eslint-config-airbnb": "^18.2.1",
         "eslint-config-prettier": "^6.15.0",
-        "eslint-plugin-html": "^6.1.0",
+        "eslint-plugin-html": "^6.1.1",
         "eslint-plugin-import": "^2.22.1",
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-prettier": "^3.1.4",
@@ -79,7 +87,7 @@
         "esm": "^3.2.25",
         "jest": "^26.6.3",
         "microbundle": "^0.12.4",
-        "prettier": "^2.1.2"
+        "prettier": "^2.2.0"
     },
     "dependencies": {},
     "engines": {
