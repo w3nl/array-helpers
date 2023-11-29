@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "4.0.2",
+    "version": "4.0.3",
     "description": "Usefull array helpers.",
     "files": [
         "src/helpers.js",
@@ -64,7 +64,9 @@
         "dev": "microbundle watch",
         "lint": "eslint src/*.js --config .eslintrc",
         "test": "jest",
-        "example": "node -r esm example/node.js"
+        "example": "node -r esm example/node.js",
+        "prepare": "npm run snyk-protect",
+        "snyk-protect": "snyk-protect"
     },
     "devDependencies": {
         "@babel/core": "^7.12.3",
@@ -84,11 +86,12 @@
         "esm": "^3.2.25",
         "jest": "^29.0.0",
         "microbundle": "^0.15.0",
-        "prettier": "^3.0.0"
+        "prettier": "^3.0.0",
+        "@snyk/protect": "latest"
     },
-    "dependencies": {},
     "type": "module",
     "engines": {
-        "node": ">= 10.13"
-    }
+        "node": ">= 18"
+    },
+    "snyk": true
 }
