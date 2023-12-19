@@ -14,3 +14,23 @@ declare interface Array<T> {
   summ(): number | undefined;
   average(): number | undefined;
 }
+import Arr from './helpers.js';
+export default Arr;
+export {
+    Arr,
+    multisort,
+    multifilter,
+    multikey,
+    intersect,
+    min,
+    max,
+    diff,
+    unique,
+    summ,
+    average,
+    random,
+    getByKey,
+    first,
+    last,
+    update,
+} from './helpers.js';
