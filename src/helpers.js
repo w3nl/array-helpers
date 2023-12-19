@@ -247,3 +247,5 @@ export {
     last,
     update,
 };
+
+export default Arr;
