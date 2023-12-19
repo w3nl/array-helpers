@@ -5,10 +5,12 @@ declare interface Array<T> {
   intersect(array: any[], multi: boolean): Array<T>;
   diff(array: any[], total: boolean): Array<T>;
   unique(): Array<T>;
-  pushIfNotExists(newValue: string): number;
+  pushIfNotExists(newValue: any[]): number;
+  pushMultiple(newValues: any[]): number;
+  pushMultipleIfNotExists(newValues: any[]): number;
   max(): number | undefined;
   min(): number | undefined;
-  random(): T;
-  summ(): T | undefined;
-  average(): T | undefined;
+  random(): any;
+  summ(): number | undefined;
+  average(): number | undefined;
 }
