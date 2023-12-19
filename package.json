@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "4.0.3",
+    "version": "5.0.0",
     "description": "Usefull array helpers.",
     "files": [
         "src/helpers.js",
@@ -18,28 +18,12 @@
         "src/modules/random.js",
         "src/modules/summ.js",
         "src/modules/unique.js",
-        "src/types.d.ts",
-        "dist/helpers.js",
-        "dist/helpers.js.map",
-        "dist/helpers.modern.js",
-        "dist/helpers.modern.js.map",
-        "dist/helpers.module.js",
-        "dist/helpers.module.js.map",
-        "dist/helpers.umd.js",
-        "dist/helpers.umd.js.map"
+        "src/types.d.ts"
     ],
     "source": "src/helpers.js",
-    "main": "dist/helpers.js",
-    "module": "dist/helpers.module.js",
-    "esmodule": "dist/helpers.modern.js",
-    "unpkg": "dist/helpers.umd.js",
-    "umd:main": "dist/helpers.umd.js",
-    "exports": {
-        ".": {
-            "require": "./dist/helpers.js",
-            "default": "./dist/helpers.module.js"
-        }
-    },
+    "main": "src/helpers.js",
+    "module": "src/helpers.js",
+    "esmodule": "src/helpers.js",
     "types": "src/types.d.ts",
     "repository": {
         "type": "git",
@@ -60,8 +44,6 @@
     "license": "MIT",
     "homepage": "https://github.com/w3nl/array-helpers#readme",
     "scripts": {
-        "build": "microbundle",
-        "dev": "microbundle watch",
         "lint": "eslint src/*.js --config .eslintrc",
         "test": "jest",
         "example": "node -r esm example/node.js",
@@ -85,7 +67,6 @@
         "eslint-plugin-vue": "^9.0.0",
         "esm": "^3.2.25",
         "jest": "^29.0.0",
-        "microbundle": "^0.15.0",
         "prettier": "^3.0.0",
         "@snyk/protect": "latest"
     },
@@ -93,5 +74,9 @@
     "engines": {
         "node": ">= 18"
     },
-    "snyk": true
+    "snyk": true,
+    "funding": {
+        "type": "github",
+        "url": "https://github.com/sponsors/w3nl"
+    }
 }

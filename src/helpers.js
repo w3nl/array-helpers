@@ -1,18 +1,18 @@
-import multisort from './modules/multisort';
-import multifilter from './modules/multifilter';
-import multikey from './modules/multikey';
-import intersect from './modules/intersect';
-import min from './modules/min';
-import max from './modules/max';
-import diff from './modules/diff';
-import unique from './modules/unique';
-import summ from './modules/summ';
-import average from './modules/average';
-import random from './modules/random';
-import getByKey from './modules/getByKey';
-import first from './modules/first';
-import last from './modules/last';
-import update from './modules/update';
+import multisort from './modules/multisort.js';
+import multifilter from './modules/multifilter.js';
+import multikey from './modules/multikey.js';
+import intersect from './modules/intersect.js';
+import min from './modules/min.js';
+import max from './modules/max.js';
+import diff from './modules/diff.js';
+import unique from './modules/unique.js';
+import summ from './modules/summ.js';
+import average from './modules/average.js';
+import random from './modules/random.js';
+import getByKey from './modules/getByKey.js';
+import first from './modules/first.js';
+import last from './modules/last.js';
+import update from './modules/update.js';
 
 /**
  * Object helper
@@ -61,7 +61,7 @@ class Arr extends Array {
     /**
      * Get the intersection of arrays.
      *
-     * @param {string}  array
+     * @param {any[]}  array
      * @param {boolean} multi
      *
      * @return {array}
@@ -73,7 +73,7 @@ class Arr extends Array {
     /**
      * Get the difference of arrays.
      *
-     * @param {string}  array
+     * @param {any[]}  array
      * @param {boolean} total
      *
      * @return {array}
@@ -85,7 +85,7 @@ class Arr extends Array {
     /**
      * Get the unique values of an array.
      *
-     * @return {array}
+     * @return {any[]}
      */
     get unique() {
         return unique(this[0]);
@@ -94,9 +94,9 @@ class Arr extends Array {
     /**
      * Only add the value if the value isnt in the array.
      *
-     * @param {string} newValue
+     * @param {any[]} newValue
      *
-     * @return {int}
+     * @return {number}
      */
     pushIfNotExists(newValue) {
         if (this.indexOf(newValue) < 0) {
@@ -109,9 +109,9 @@ class Arr extends Array {
     /**
      * Add multiple values to an array.
      *
-     * @param {array} newValues
+     * @param {any[]} newValues
      *
-     * @return {int}
+     * @return {number}
      */
     pushMultiple(newValues) {
         this.push(...newValues);
@@ -125,7 +125,7 @@ class Arr extends Array {
      *
      * @param {array} newValues
      *
-     * @return {int}
+     * @return {number}
      */
     pushMultipleIfNotExists(newValues) {
         const array = this;
@@ -142,7 +142,7 @@ class Arr extends Array {
      * If at least one of the arguments cannot be converted to a number,
      * NaN is returned.
      *
-     * @return {int}
+     * @return {number}
      */
     get max() {
         return max(this[0]);
@@ -153,7 +153,7 @@ class Arr extends Array {
      * If at least one of the arguments cannot be converted to a number,
      * NaN is returned.
      *
-     * @return {int}
+     * @return {number}
      */
     get min() {
         return min(this[0]);
@@ -162,7 +162,7 @@ class Arr extends Array {
     /**
      * Get a random value of an array.
      *
-     * @return {string}
+     * @return {any}
      */
     get random() {
         return random(this);
@@ -171,7 +171,7 @@ class Arr extends Array {
     /**
      * The summ of all values.
      *
-     * @return {int}
+     * @return {number}
      */
     get summ() {
         return summ(this[0]);
@@ -180,7 +180,7 @@ class Arr extends Array {
     /**
      * Get the average of all values.
      *
-     * @return {int}
+     * @return {number}
      */
     get average() {
         return average(this[0]);
