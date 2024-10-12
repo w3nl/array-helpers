@@ -53,7 +53,7 @@
     "devDependencies": {
         "@babel/core": "^7.12.3",
         "@babel/preset-env": "^7.12.1",
-        "@hckrnews/eslint-config": "^3.0.0",
+        "@hckrnews/eslint-config": "^3.1.1",
         "@babel/eslint-parser": "^7.11.0",
         "babel-jest": "^29.0.0",
         "eslint": "^8.0.0",
