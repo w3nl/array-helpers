@@ -51,7 +51,7 @@
         "snyk-protect": "snyk-protect"
     },
     "devDependencies": {
-        "@babel/core": "^7.12.3",
+        "@babel/core": "^7.26.10",
         "@babel/preset-env": "^7.12.1",
         "@hckrnews/eslint-config": "^3.0.0",
         "@babel/eslint-parser": "^7.11.0",
