@@ -1,6 +1,6 @@
 {
     "name": "array-helpers",
-    "version": "5.0.3",
+    "version": "6.0.0",
     "description": "Usefull array helpers.",
     "files": [
         "src/helpers.js",
