@@ -44,39 +44,30 @@
     "license": "MIT",
     "homepage": "https://github.com/w3nl/array-helpers#readme",
     "scripts": {
-        "lint": "eslint src/*.js --config .eslintrc",
-        "test": "jest",
-        "example": "node -r esm example/node.js",
+        "lint": "eslint",
+        "lint:report": "eslint -f json -o report.json",
+        "lint:fix": "eslint --fix",
+        "test": "node --test --experimental-test-coverage --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=./coverage/lcov.info",
+        "example": "node example/node.js",
         "prepare": "npm run snyk-protect",
         "snyk-protect": "snyk-protect"
     },
     "devDependencies": {
-        "@babel/core": "^7.12.3",
-        "@babel/preset-env": "^7.12.1",
-        "@hckrnews/eslint-config": "^3.0.0",
-        "@babel/eslint-parser": "^7.11.0",
-        "babel-jest": "^30.0.0",
-        "eslint": "^8.0.0",
-        "eslint-config-airbnb": "^19.0.0",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-html": "^7.0.0",
-        "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-prettier": "^5.0.0",
-        "eslint-plugin-react": "^7.21.5",
-        "eslint-plugin-vue": "^10.0.0",
-        "esm": "^3.2.25",
-        "jest": "^30.0.0",
-        "prettier": "^3.0.0",
-        "@snyk/protect": "1.1297.3"
+        "@trojs/lint": "^0.3.0",
+        "@snyk/protect": "1.1297.3",
+        "eslint": "^9.15.0",
+        "globals": "^16.0.0"
     },
     "type": "module",
     "engines": {
-        "node": ">= 18"
+        "node": ">= 22"
     },
     "snyk": true,
     "funding": {
         "type": "github",
         "url": "https://github.com/sponsors/w3nl"
+    },
+    "dependencies": {
+        "@trojs/arrays": "^7.0.0"
     }
 }

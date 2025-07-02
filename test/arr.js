@@ -1,30 +1,38 @@
-import { Arr } from '../src/helpers';
+import test from 'node:test'
+import assert from 'node:assert'
+import { Arr } from '../src/helpers.js'
 
-const original = new Arr(1, 2, 3);
-const mapped = original.map((x) => x * x);
+const original = new Arr(1, 2, 3)
+const mapped = original.map((x) => x * x)
 
-describe('Instance', () => {
-    it('Test if the original output from Arr is a instance of Arr', () => {
-        expect(original instanceof Arr).toBeTruthy();
-    });
+test('Instance', async (t) => {
+  await t.test(
+    'Test if the original output from Arr is a instance of Arr',
+    () => {
+      assert.strictEqual(original instanceof Arr, true)
+    }
+  )
 
-    it('Test if the original output from Arr is a instance of Array', () => {
-        expect(original instanceof Array).toBeTruthy();
-    });
+  await t.test(
+    'Test if the original output from Arr is a instance of Array',
+    () => {
+      assert.strictEqual(Array.isArray(original), true)
+    }
+  )
 
-    it('Test if the mappen result is a instance of Arr', () => {
-        expect(mapped instanceof Arr).toBeFalsy();
-    });
+  await t.test('Test if the mappen result is a instance of Arr', () => {
+    assert.strictEqual(mapped instanceof Arr, false)
+  })
 
-    it('Test if the mappen result is a instance of Array', () => {
-        expect(mapped instanceof Array).toBeTruthy();
-    });
+  await t.test('Test if the mappen result is a instance of Array', () => {
+    assert.strictEqual(Array.isArray(mapped), true)
+  })
 
-    it('Test the original result', () => {
-        expect(original).toEqual([1, 2, 3]);
-    });
+  await t.test('Test the original result', () => {
+    assert.deepEqual(original, [1, 2, 3])
+  })
 
-    it('Test the mapped result', () => {
-        expect(mapped).toEqual([1, 4, 9]);
-    });
-});
+  await t.test('Test the mapped result', () => {
+    assert.deepEqual(mapped, [1, 4, 9])
+  })
+})

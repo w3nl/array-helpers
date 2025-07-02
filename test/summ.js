@@ -1,13 +1,18 @@
-import { Arr } from '../src/helpers';
+import test from 'node:test'
+import assert from 'node:assert'
+import { Arr } from '../src/helpers.js'
 
-const exampleArray = new Arr([1, 2, 3]);
+const exampleArray = new Arr([1, 2, 3])
 
-describe('Summ', () => {
-    it('Should return the summ of the items, in this example should it be 6.', () => {
-        expect(6).toEqual(exampleArray.summ);
-    });
+test('Summ', async (t) => {
+  await t.test(
+    'Should return the summ of the items, in this example should it be 6.',
+    () => {
+      assert.strictEqual(exampleArray.summ, 6)
+    }
+  )
 
-    it('Test an empty array', () => {
-        expect(null).toEqual(new Arr([]).summ);
-    });
-});
+  await t.test('Test an empty array', () => {
+    assert.strictEqual(new Arr([]).summ, null)
+  })
+})

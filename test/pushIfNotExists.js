@@ -1,32 +1,27 @@
-import { Arr } from '../src/helpers';
+import test from 'node:test'
+import assert from 'node:assert'
+import { Arr } from '../src/helpers.js'
 
-const a = new Arr();
+const a = new Arr()
 
 const expectedResults = {
-    test1: ['John'],
-    test2: ['John', 'Peter'],
-    test3: ['John', 'Peter'],
-};
+  test1: ['John'],
+  test2: ['John', 'Peter'],
+  test3: ['John', 'Peter']
+}
 
-describe('Push if not exists', () => {
-    describe('Test 1', () => {
-        it('Should be return 1 item in the array.', () => {
-            a.pushIfNotExists('John');
-            expect(a).toEqual(expectedResults.test1);
-        });
-    });
+test('Push if not exists', async (t) => {
+  await t.test('Should be return 1 item in the array.', () => {
+    a.pushIfNotExists('John')
+    assert.deepEqual(a, expectedResults.test1)
+  })
 
-    describe('Test 2', () => {
-        it('Should be return 2 item in the array.', () => {
-            a.pushIfNotExists('Peter');
-            expect(a).toEqual(expectedResults.test2);
-        });
-    });
-
-    describe('Test 3', () => {
-        it('Should be return 2 item in the array.', () => {
-            a.pushIfNotExists('John');
-            expect(a).toEqual(expectedResults.test3);
-        });
-    });
-});
+  await t.test('Should be return 2 item in the array.', () => {
+    a.pushIfNotExists('Peter')
+    assert.deepEqual(a, expectedResults.test2)
+  })
+  await t.test('Should be return 2 item in the array.', () => {
+    a.pushIfNotExists('John')
+    assert.deepEqual(a, expectedResults.test3)
+  })
+})
