@@ -1,11 +1,16 @@
-import { Arr } from '../src/helpers';
+import test from 'node:test'
+import assert from 'node:assert'
+import { Arr } from '../src/helpers.js'
 
-describe('First', () => {
-    it('Should return the first, in this example should it be 1.', () => {
-        expect(new Arr([1, 2, 3]).first).toEqual(1);
-    });
+test('First', async (t) => {
+  await t.test(
+    'Should return the first, in this example should it be 1.',
+    () => {
+      assert.strictEqual(new Arr([1, 2, 3]).first, 1)
+    }
+  )
 
-    it('Test an empty array', () => {
-        expect(new Arr([]).first).toEqual(null);
-    });
-});
+  await t.test('Test an empty array', () => {
+    assert.strictEqual(new Arr([]).first, null)
+  })
+})

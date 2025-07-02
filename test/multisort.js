@@ -1,137 +1,145 @@
-import { Arr } from '../src/helpers';
+import test from 'node:test'
+import assert from 'node:assert'
+import { Arr } from '../src/helpers.js'
 
 const exampleArray = new Arr([
-    {
-        id: 0,
-        name: 'John',
-        age: 93,
-        city: 'Patmos',
-    },
-    {
-        id: 1,
-        name: 'Peter',
-        age: 62,
-        city: 'Rome',
-    },
-    {
-        id: 2,
-        name: 'Luke',
-        age: 84,
-        city: 'Boeotia',
-    },
-    {
-        id: 2,
-        name: 'Paul',
-        age: 62,
-        city: 'Rome',
-    },
-]);
+  {
+    id: 0,
+    name: 'John',
+    age: 93,
+    city: 'Patmos'
+  },
+  {
+    id: 1,
+    name: 'Peter',
+    age: 62,
+    city: 'Rome'
+  },
+  {
+    id: 2,
+    name: 'Luke',
+    age: 84,
+    city: 'Boeotia'
+  },
+  {
+    id: 2,
+    name: 'Paul',
+    age: 62,
+    city: 'Rome'
+  }
+])
 
 const expectedResults = {
-    test1: JSON.stringify([
-        {
-            id: 1,
-            name: 'Peter',
-            age: 62,
-            city: 'Rome',
-        },
-        {
-            id: 2,
-            name: 'Paul',
-            age: 62,
-            city: 'Rome',
-        },
-        {
-            id: 2,
-            name: 'Luke',
-            age: 84,
-            city: 'Boeotia',
-        },
-        {
-            id: 0,
-            name: 'John',
-            age: 93,
-            city: 'Patmos',
-        },
-    ]),
-    test2: JSON.stringify([
-        {
-            id: 0,
-            name: 'John',
-            age: 93,
-            city: 'Patmos',
-        },
-        {
-            id: 2,
-            name: 'Luke',
-            age: 84,
-            city: 'Boeotia',
-        },
-        {
-            id: 1,
-            name: 'Peter',
-            age: 62,
-            city: 'Rome',
-        },
-        {
-            id: 2,
-            name: 'Paul',
-            age: 62,
-            city: 'Rome',
-        },
-    ]),
-    test3: JSON.stringify([
-        {
-            id: 0,
-            name: 'John',
-            age: 93,
-            city: 'Patmos',
-        },
-        {
-            id: 2,
-            name: 'Luke',
-            age: 84,
-            city: 'Boeotia',
-        },
-        {
-            id: 2,
-            name: 'Paul',
-            age: 62,
-            city: 'Rome',
-        },
-        {
-            id: 1,
-            name: 'Peter',
-            age: 62,
-            city: 'Rome',
-        },
-    ]),
-};
+  test1: [
+    {
+      id: 1,
+      name: 'Peter',
+      age: 62,
+      city: 'Rome'
+    },
+    {
+      id: 2,
+      name: 'Paul',
+      age: 62,
+      city: 'Rome'
+    },
+    {
+      id: 2,
+      name: 'Luke',
+      age: 84,
+      city: 'Boeotia'
+    },
+    {
+      id: 0,
+      name: 'John',
+      age: 93,
+      city: 'Patmos'
+    }
+  ],
+  test2: [
+    {
+      id: 0,
+      name: 'John',
+      age: 93,
+      city: 'Patmos'
+    },
+    {
+      id: 2,
+      name: 'Luke',
+      age: 84,
+      city: 'Boeotia'
+    },
+    {
+      id: 1,
+      name: 'Peter',
+      age: 62,
+      city: 'Rome'
+    },
+    {
+      id: 2,
+      name: 'Paul',
+      age: 62,
+      city: 'Rome'
+    }
+  ],
+  test3: [
+    {
+      id: 0,
+      name: 'John',
+      age: 93,
+      city: 'Patmos'
+    },
+    {
+      id: 2,
+      name: 'Luke',
+      age: 84,
+      city: 'Boeotia'
+    },
+    {
+      id: 2,
+      name: 'Paul',
+      age: 62,
+      city: 'Rome'
+    },
+    {
+      id: 1,
+      name: 'Peter',
+      age: 62,
+      city: 'Rome'
+    }
+  ]
+}
 
-exampleArray.multisort('age', 'desc');
+exampleArray.multisort('age', 'desc')
 
-describe('Multisort', () => {
-    describe('Test 1 (ASC)', () => {
-        it('Should return the array, sorted by age asc.', () => {
-            expect(expectedResults.test1).toEqual(
-                JSON.stringify(exampleArray.multisort('age', 'asc'))
-            );
-        });
-    });
+test('Multisort', async (t) => {
+  await t.test(
+    'Test 1 (ASC): Should return the array, sorted by age asc.',
+    () => {
+      assert.deepEqual(
+        exampleArray.multisort('age', 'asc'),
+        expectedResults.test1
+      )
+    }
+  )
 
-    describe('Test 1 (DESC)', () => {
-        it('Should return the array, sorted by age desc.', () => {
-            expect(expectedResults.test2).toEqual(
-                JSON.stringify(exampleArray.multisort('age', 'desc'))
-            );
-        });
-    });
+  await t.test(
+    'Test 2 (DESC): Should return the array, sorted by age desc.',
+    () => {
+      assert.deepEqual(
+        exampleArray.multisort('age', 'desc'),
+        expectedResults.test2
+      )
+    }
+  )
 
-    describe('Test 3 (sort text ASC)', () => {
-        it('Should return the array, sorted by age asc.', () => {
-            expect(expectedResults.test3).toEqual(
-                JSON.stringify(exampleArray.multisort('name', 'asc'))
-            );
-        });
-    });
-});
+  await t.test(
+    'Test 3 (sort text ASC): Should return the array, sorted by name asc.',
+    () => {
+      assert.deepEqual(
+        exampleArray.multisort('name', 'asc'),
+        expectedResults.test3
+      )
+    }
+  )
+})

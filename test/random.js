@@ -1,11 +1,13 @@
-import { Arr } from '../src/helpers';
+import test from 'node:test'
+import assert from 'node:assert'
+import { Arr } from '../src/helpers.js'
 
-const exampleArray = new Arr([1, 2, 3]);
+const exampleArray = new Arr([1, 2, 3])
 
-describe('Random', () => {
-    it('Check if the random value is an item from the array.', () => {
-        const { random } = exampleArray;
+test('Random', async (t) => {
+  await t.test('Check if the random value is an item from the array.', () => {
+    const { random } = exampleArray
 
-        expect(true).toEqual(exampleArray.includes(random));
-    });
-});
+    assert.strictEqual(exampleArray.includes(random), true)
+  })
+})
