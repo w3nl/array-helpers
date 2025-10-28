@@ -54,7 +54,7 @@
     },
     "devDependencies": {
         "@trojs/lint": "^0.3.0",
-        "@snyk/protect": "1.1300.1",
+        "@snyk/protect": "1.1300.2",
         "eslint": "^9.15.0",
         "globals": "^16.0.0"
     },
