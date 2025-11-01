@@ -68,6 +68,6 @@
         "url": "https://github.com/sponsors/w3nl"
     },
     "dependencies": {
-        "@trojs/arrays": "^7.0.0"
+        "@trojs/arrays": "^8.0.0"
     }
 }
